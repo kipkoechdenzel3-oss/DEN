@@ -20,6 +20,10 @@
       --nav-fg: #ddd;
     }
 
+    html {
+      scroll-behavior: smooth; /* Smooth scrolling */
+    }
+
     body {
       font-family: Arial, sans-serif;
       margin: 0; padding: 0;
@@ -44,6 +48,9 @@
     .card { border: 1px solid #ddd; padding: 10px; border-radius: 8px; margin-bottom: 10px; background: var(--card-bg); transition: background 0.3s; }
     .card h3 { margin: 0 0 5px; font-size: 16px; }
     ul { padding-left: 20px; margin: 0; }
+    ul li { margin-bottom: 5px; }
+    ul li a { text-decoration: none; color: var(--fg); cursor: pointer; }
+    ul li a:hover { text-decoration: underline; }
     .game-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
     .btn { padding: 6px 10px; margin: 2px; border: none; border-radius: 6px; cursor: pointer; }
     .btn.secondary { background: #eee; }
@@ -63,35 +70,35 @@
     <aside>
       <h3>Navigation</h3>
       <ul>
-        <li>🏠 Home</li>
-        <li>🔍 Search</li>
-        <li>💬 Chat</li>
-        <li>🧭 Explore</li>
-        <li>📁 Library</li>
-        <li>⭐ Reviews</li>
-        <li>🎁 Rewards</li>
-        <li>📝 Notes</li>
+        <li><a href="#home">🏠 Home</a></li>
+        <li><a href="#search">🔍 Search</a></li>
+        <li><a href="#chat">💬 Chat</a></li>
+        <li><a href="#explore">🧭 Explore</a></li>
+        <li><a href="#library">📁 Library</a></li>
+        <li><a href="#reviews">⭐ Reviews</a></li>
+        <li><a href="#rewards">🎁 Rewards</a></li>
+        <li><a href="#notes">📝 Notes</a></li>
       </ul>
       <button id="theme-toggle" class="btn">🌙 Theme Switch</button>
     </aside>
 
     <!-- Main Content -->
     <main>
-      <section>
+      <section id="home">
         <button class="btn secondary">MY GAMES</button>
         <button class="btn ghost">DOWNLOAD</button>
         <button class="btn ghost">Game Room</button>
         <button class="btn ghost">Leaderboard</button>
+
+        <div class="game-grid">
+          <div class="card"><h3>Best Game</h3><p>by football</p></div>
+          <div class="card"><h3>Spotlight Game</h3><p>Top Rated</p></div>
+          <div class="card"><h3>Arcade Frenzy</h3><p>Most Played</p></div>
+          <div class="card"><h3>Puzzle Master</h3><p>Trending</p></div>
+        </div>
       </section>
 
-      <section class="game-grid">
-        <div class="card"><h3>Best Game</h3><p>by football</p></div>
-        <div class="card"><h3>Spotlight Game</h3><p>Top Rated</p></div>
-        <div class="card"><h3>Arcade Frenzy</h3><p>Most Played</p></div>
-        <div class="card"><h3>Puzzle Master</h3><p>Trending</p></div>
-      </section>
-
-      <section class="card">
+      <section id="search" class="card">
         <h3>🔍 Advanced Search</h3>
         <input type="text" placeholder="Search by genre, rating, platform..." style="width:100%; margin-bottom:8px;">
         <button class="btn secondary">Genre</button>
@@ -99,13 +106,37 @@
         <button class="btn secondary">Platform</button>
       </section>
 
-      <section class="card">
-        <h3>📢 Activity Feed</h3>
+      <section id="chat" class="card">
+        <h3>💬 Chat</h3>
+        <p>Chat functionality goes here...</p>
+      </section>
+
+      <section id="explore" class="card">
+        <h3>🧭 Explore</h3>
+        <p>Explore new games...</p>
+      </section>
+
+      <section id="library" class="card">
+        <h3>📁 Library</h3>
+        <p>Your saved games...</p>
+      </section>
+
+      <section id="reviews" class="card">
+        <h3>⭐ Reviews</h3>
         <ul>
-          <li>Played 'Best Game'</li>
-          <li>Earned 'First Win' badge</li>
-          <li>Added Mia as friend</li>
+          <li>Review 1</li>
+          <li>Review 2</li>
         </ul>
+      </section>
+
+      <section id="rewards" class="card">
+        <h3>🎁 Rewards</h3>
+        <p>Your rewards appear here...</p>
+      </section>
+
+      <section id="notes" class="card">
+        <h3>📝 Notes</h3>
+        <p>Personal notes...</p>
       </section>
     </main>
 
@@ -151,6 +182,7 @@
   </div>
 
   <script>
+    // Theme toggle
     const btn = document.getElementById("theme-toggle");
     btn.addEventListener("click", () => {
       document.body.classList.toggle("dark");
