@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Woopen Gamers</title>
+  <style>
+    :root {
+      --bg: #f4f4f9;
+      --fg: #333;
+      --card-bg: #fff;
+      --nav-bg: #222;
+      --nav-fg: #fff;
+    }
+    body.dark {
+      --bg: #181818;
+      --fg: #f1f1f1;
+      --card-bg: #242424;
+      --nav-bg: #111;
+      --nav-fg: #ddd;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background: var(--bg);
+      color: var(--fg);
+      transition: background 0.3s, color 0.3s;
+    }
+    nav {
+      background: var(--nav-bg);
+      color: var(--nav-fg);
+      padding: 1rem;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    nav input { padding: 5px; border-radius: 6px; border: none; }
+    nav button { background: #555; color: white; border: none; padding: 6px 10px; border-radius: 6px; cursor: pointer; }
+    .container { display: grid; grid-template-columns: 220px 1fr 220px; gap: 20px; padding: 20px; }
+    aside, main, section {
+      background: var(--card-bg); padding: 15px;
+      border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: background 0.3s;
+    }
+    .card { border: 1px solid #ddd; padding: 10px; border-radius: 8px; margin-bottom: 10px; background: var(--card-bg); transition: background 0.3s; }
+    .card h3 { margin: 0 0 5px; font-size: 16px; }
+    ul { padding-left: 20px; margin: 0; }
+    .game-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .btn { padding: 6px 10px; margin: 2px; border: none; border-radius: 6px; cursor: pointer; }
+    .btn.secondary { background: #eee; }
+    .btn.ghost { background: transparent; border: 1px solid #ccc; }
+  </style>
+</head>
+<body>
+  <!-- Top nav -->
+  <nav>
+    <div>🎮 Woopen Gamers</div>
+    <input type="text" placeholder="Search...">
+    <button>Log in / Sign up</button>
+  </nav>
+
+  <div class="container">
+    <!-- Left Sidebar -->
+    <aside>
+      <h3>Navigation</h3>
+      <ul>
+        <li>🏠 Home</li>
+        <li>🔍 Search</li>
+        <li>💬 Chat</li>
+        <li>🧭 Explore</li>
+        <li>📁 Library</li>
+        <li>⭐ Reviews</li>
+        <li>🎁 Rewards</li>
+        <li>📝 Notes</li>
+      </ul>
+      <button id="theme-toggle" class="btn">🌙 Theme Switch</button>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+      <section>
+        <button class="btn secondary">MY GAMES</button>
+        <button class="btn ghost">DOWNLOAD</button>
+        <button class="btn ghost">Game Room</button>
+        <button class="btn ghost">Leaderboard</button>
+      </section>
+
+      <section class="game-grid">
+        <div class="card"><h3>Best Game</h3><p>by football</p></div>
+        <div class="card"><h3>Spotlight Game</h3><p>Top Rated</p></div>
+        <div class="card"><h3>Arcade Frenzy</h3><p>Most Played</p></div>
+        <div class="card"><h3>Puzzle Master</h3><p>Trending</p></div>
+      </section>
+
+      <section class="card">
+        <h3>🔍 Advanced Search</h3>
+        <input type="text" placeholder="Search by genre, rating, platform..." style="width:100%; margin-bottom:8px;">
+        <button class="btn secondary">Genre</button>
+        <button class="btn secondary">Sort by Rating</button>
+        <button class="btn secondary">Platform</button>
+      </section>
+
+      <section class="card">
+        <h3>📢 Activity Feed</h3>
+        <ul>
+          <li>Played 'Best Game'</li>
+          <li>Earned 'First Win' badge</li>
+          <li>Added Mia as friend</li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- Right Sidebar -->
+    <aside>
+      <div class="card">
+        <h3>👤 Denzel</h3>
+        <p>Level: 7</p>
+        <p>Points: 3200</p>
+      </div>
+      <div class="card">
+        <h3>🔔 Notifications</h3>
+        <ul>
+          <li>🎮 New game update available</li>
+          <li>⭐ Your review got 5 likes</li>
+          <li>👥 New friend request</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>👥 Friends Online</h3>
+        <ul>
+          <li>🟢 Alex</li>
+          <li>🟢 Mia</li>
+          <li>⚪ Sam (offline)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>📊 Leaderboard</h3>
+        <ul>
+          <li>🏆 PlayerOne – 1200 pts</li>
+          <li>🥈 GamerX – 950 pts</li>
+          <li>🥉 ProHero – 870 pts</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🏅 Achievements</h3>
+        <ul>
+          <li>🏅 First Win</li>
+          <li>🎯 Sharp Shooter</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <script>
+    const btn = document.getElementById("theme-toggle");
+    btn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      btn.textContent = document.body.classList.contains("dark") ? "☀️ Light Mode" : "🌙 Dark Mode";
+    });
+  </script>
+</body>
+</html>
